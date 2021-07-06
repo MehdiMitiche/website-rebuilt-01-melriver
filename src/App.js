@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useRef, useState } from "react";
+import gsap from "gsap";
+import Header from "./Components/Header";
+import Services from "./Components/Services";
+import Menu from "./Components/Menu";
+import menuIcon from "./Assets/menu.png";
 
 function App() {
+  let appContent = useRef(null);
+  const [opened, setOpened] = useState(false);
+  const clickMenu = () => {
+    if (opened === true) {
+      gsap.to(appContent, { top: "0vh", duration: 1, ease: "expo.inOut" });
+      setOpened(false);
+    } else {
+      gsap.to(appContent, { top: "50vh", duration: 1, ease: "expo.inOut" });
+      setOpened(true);
+    }
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="logo">AGENCY</div>
+      <img
+        onClick={() => clickMenu()}
+        src={menuIcon}
+        alt="menu"
+        className="menu-icon"
+      />
+      <Menu />
+      <div ref={(node) => (appContent = node)} className="app-content">
+        <Header />
+        <Services />
+      </div>
     </div>
   );
 }

@@ -1,0 +1,60 @@
+.header {
+  color: black;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background-color: black;
+}
+.header-content {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+  z-index: 1;
+}
+.header-title {
+  font-size: 3em;
+  width: 50%;
+  color: white;
+}
+.title-item {
+  padding-top: 10px;
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+}
+.header-cta {
+  font-size: 1.6em;
+}
+.rect-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.rect {
+  flex: 1;
+  background-color: white;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  border: white 1px solid;
+}
+.rect-1 {
+  left: 0vw;
+}
+.rect-2 {
+  left: 33vw;
+}
+.rect-3 {
+  left: 67vw;
+}
+@media only screen and (max-width: 880px) {
+  .header-content {
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .header-title {
+    text-align: center;
+    font-size: 2em;
+    width: 100%;
+  }
+}
